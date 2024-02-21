@@ -14,6 +14,7 @@
 		CEC54B2F2B28BCC700C35364 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC54B2E2B28BCC700C35364 /* HomeViewController.swift */; };
 		CEC54B342B28BCC800C35364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B332B28BCC800C35364 /* Assets.xcassets */; };
 		CEC54B372B28BCC800C35364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B352B28BCC800C35364 /* LaunchScreen.storyboard */; };
+		CEF9FCF12B7D076D00E31A3C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CEC54B332B28BCC800C35364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC54B362B28BCC800C35364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEC54B382B28BCC800C35364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		CEC54B292B28BCC700C35364 /* cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				CEF9FCEF2B7D072A00E31A3C /* Cells */,
 				CE9A1B952B5062450018AB31 /* Models */,
 				CE9A1B942B5062190018AB31 /* ViewControllers */,
 				CEC54B2A2B28BCC700C35364 /* AppDelegate.swift */,
@@ -84,6 +87,14 @@
 				CEC54B382B28BCC800C35364 /* Info.plist */,
 			);
 			path = cinetopia;
+			sourceTree = "<group>";
+		};
+		CEF9FCEF2B7D072A00E31A3C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			files = (
 				CE9A1B972B50625E0018AB31 /* Movies.swift in Sources */,
 				CEC54B2F2B28BCC700C35364 /* HomeViewController.swift in Sources */,
+				CEF9FCF12B7D076D00E31A3C /* MovieTableViewCell.swift in Sources */,
 				CEC54B2B2B28BCC700C35364 /* AppDelegate.swift in Sources */,
 				CEC54B2D2B28BCC700C35364 /* SceneDelegate.swift in Sources */,
 				CE7142A52B3607D300758F05 /* MoviesViewController.swift in Sources */,
