@@ -53,6 +53,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        overrideUserInterfaceStyle = .dark 
+        
         configureUI()
         addConstraints()
     }
