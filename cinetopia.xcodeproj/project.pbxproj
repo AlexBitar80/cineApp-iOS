@@ -15,6 +15,7 @@
 		CEC54B342B28BCC800C35364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B332B28BCC800C35364 /* Assets.xcassets */; };
 		CEC54B372B28BCC800C35364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B352B28BCC800C35364 /* LaunchScreen.storyboard */; };
 		CEF9FCF12B7D076D00E31A3C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */; };
+		CEFED0652B858529005284EF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFED0642B858529005284EF /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CEC54B362B28BCC800C35364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEC54B382B28BCC800C35364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		CEFED0642B858529005284EF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				CE7142A42B3607D300758F05 /* MoviesViewController.swift */,
 				CEC54B2E2B28BCC700C35364 /* HomeViewController.swift */,
+				CEFED0642B858529005284EF /* MovieDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				CEC54B2F2B28BCC700C35364 /* HomeViewController.swift in Sources */,
 				CEF9FCF12B7D076D00E31A3C /* MovieTableViewCell.swift in Sources */,
 				CEC54B2B2B28BCC700C35364 /* AppDelegate.swift in Sources */,
+				CEFED0652B858529005284EF /* MovieDetailViewController.swift in Sources */,
 				CEC54B2D2B28BCC700C35364 /* SceneDelegate.swift in Sources */,
 				CE7142A52B3607D300758F05 /* MoviesViewController.swift in Sources */,
 			);
