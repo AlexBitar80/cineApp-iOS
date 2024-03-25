@@ -11,6 +11,9 @@ class MoviesViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var filteredMovies: [Movie] = []
+    private var isSearchActive: Bool = false
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,11 +21,24 @@ class MoviesViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Pesquisar Filme"
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.searchTextField.textColor = .black
+        return searchBar
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .dark
+        overrideUserInterfaceStyle = .light
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
             
         setupNavigationBar()
         configureUI()
@@ -37,7 +53,10 @@ class MoviesViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.white
         ]
+        
         navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.titleView = searchBar
+        searchBar.delegate = self
     }
     
     private func configureUI() {
@@ -56,17 +75,28 @@ class MoviesViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
+    
+    @objc private func hideKeyboard() {
+        searchBar.resignFirstResponder()
+    }
 }
+
+// MARK: - UITableViewDataSource
 
 extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies.count
+        return isSearchActive ? filteredMovies.count : movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
-        cell.cofigureCell(cell: movies[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, 
+                                                       for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = isSearchActive ? filteredMovies[indexPath.row] : movies[indexPath.row]
+        
+        cell.cofigureCell(cell: movie)
+       
         cell.selectionStyle = .none
         return cell
     }
@@ -76,9 +106,35 @@ extension MoviesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
 extension MoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = MovieDetailViewController(movie: movies[indexPath.row])
+       
+        
+        let movie = isSearchActive ? filteredMovies[indexPath.row] : movies[indexPath.row]
+        
+        let vc = MovieDetailViewController(movie: movie)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension MoviesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            isSearchActive = false
+        } else {
+            isSearchActive = true
+            filteredMovies = movies.filter({ movie in
+               movie.title.lowercased().contains(searchText.lowercased())
+            })
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
