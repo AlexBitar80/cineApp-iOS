@@ -107,7 +107,3 @@ class MovieTableViewCell: UITableViewCell {
         movieReleaseDateLabel.text = "Lançamento: \(cell.realaseDate)"
     }
 }
-
-//#Preview {
-//    MovieTableViewCell()
-//}
