@@ -13,6 +13,13 @@ class MoviesViewController: UIViewController {
     
     private var filteredMovies: [Movie] = []
     private var isSearchActive: Bool = false
+    private let movieService: MovieService = MovieService()
+    
+    private var movies: [Movie] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -43,9 +50,19 @@ class MoviesViewController: UIViewController {
         setupNavigationBar()
         configureUI()
         addConstraints()
+        fetchMovies()
     }
     
     // MARK: - Helpers
+    
+    private func fetchMovies() {
+        movieService.getMovies { [weak self] movies in
+            DispatchQueue.main.async {
+                guard let movies else{ return }
+                self?.movies = movies
+            }
+        }
+    }
     
     private func setupNavigationBar() {
         title = "Filmes Populares"
