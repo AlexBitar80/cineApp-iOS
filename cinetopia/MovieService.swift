@@ -7,23 +7,29 @@
 
 import Foundation
 
+enum MovieError: Error {
+    case invalidURL
+    case failedToFetchMovies
+    case failedToDecodeMovies
+}
+
 struct MovieService {
-    func getMovies(completion: @escaping([Movie]?) -> Void) {
+    func getMovies(completion: @escaping(Result<[Movie], MovieError>) -> Void) {
         let urlString = "https://my-json-server.typicode.com/alura-cursos/movie-api/movies"
         
         var movies: [Movie] = []
         
-        guard let url = URL(string: urlString) else { return completion(nil) }
+        guard let url = URL(string: urlString) else { return completion(.failure(.invalidURL)) }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data, response != nil, error == nil else { return completion(nil) }
+            guard let data, response != nil, error == nil else { return completion(.failure(.failedToFetchMovies)) }
             
             do {
                 let decoder = JSONDecoder()
                 movies = try decoder.decode([Movie].self, from: data)
-                completion(movies)
+                completion(.success(movies))
             } catch {
-                print("Failed to decode movies: \(error)")
+                completion(.failure(.failedToDecodeMovies))
             }
         }
         

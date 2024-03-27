@@ -43,7 +43,9 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let tapGesture = UITapGestureRecognizer(target: self, 
+                                                action: #selector(hideKeyboard))
+        
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
             
@@ -56,10 +58,14 @@ class MoviesViewController: UIViewController {
     // MARK: - Helpers
     
     private func fetchMovies() {
-        movieService.getMovies { [weak self] movies in
-            DispatchQueue.main.async {
-                guard let movies else{ return }
-                self?.movies = movies
+        movieService.getMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                DispatchQueue.main.async {
+                    self?.movies = movies
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
