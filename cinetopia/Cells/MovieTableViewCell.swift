@@ -104,6 +104,6 @@ class MovieTableViewCell: UITableViewCell {
     func cofigureCell(cell: Movie) {
         moviePosterImageView.image = UIImage(named: cell.image)
         movieTitleLabel.text = cell.title
-        movieReleaseDateLabel.text = "Lançamento: \(cell.realaseDate)"
+        movieReleaseDateLabel.text = "Lançamento: \(cell.releaseDate)"
     }
 }

@@ -13,6 +13,13 @@ class MoviesViewController: UIViewController {
     
     private var filteredMovies: [Movie] = []
     private var isSearchActive: Bool = false
+    private let movieService: MovieService = MovieService()
+    
+    private var movies: [Movie] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -36,16 +43,29 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        let tapGesture = UITapGestureRecognizer(target: self, 
+                                                action: #selector(hideKeyboard))
+        
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
             
         setupNavigationBar()
         configureUI()
         addConstraints()
+        fetchMovies()
     }
     
     // MARK: - Helpers
+    
+    private func fetchMovies() {
+        Task {
+            do {
+                movies = try await movieService.getMovies()
+            } catch (let error) {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     private func setupNavigationBar() {
         title = "Filmes Populares"
