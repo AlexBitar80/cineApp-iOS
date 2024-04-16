@@ -58,13 +58,10 @@ class MoviesViewController: UIViewController {
     // MARK: - Helpers
     
     private func fetchMovies() {
-        movieService.getMovies { [weak self] result in
-            switch result {
-            case .success(let movies):
-                DispatchQueue.main.async {
-                    self?.movies = movies
-                }
-            case .failure(let error):
+        Task {
+            do {
+                movies = try await movieService.getMovies()
+            } catch (let error) {
                 print(error.localizedDescription)
             }
         }

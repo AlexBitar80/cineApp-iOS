@@ -14,25 +14,26 @@ enum MovieError: Error {
 }
 
 struct MovieService {
-    func getMovies(completion: @escaping(Result<[Movie], MovieError>) -> Void) {
+    func getMovies() async throws -> [Movie] {
         let urlString = "https://my-json-server.typicode.com/alura-cursos/movie-api/movies"
         
-        var movies: [Movie] = []
-        
-        guard let url = URL(string: urlString) else { return completion(.failure(.invalidURL)) }
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data, response != nil, error == nil else { return completion(.failure(.failedToFetchMovies)) }
-            
-            do {
-                let decoder = JSONDecoder()
-                movies = try decoder.decode([Movie].self, from: data)
-                completion(.success(movies))
-            } catch {
-                completion(.failure(.failedToDecodeMovies))
-            }
+        guard let url = URL(string: urlString) else { 
+            throw MovieError.invalidURL
         }
         
-        task.resume()
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw MovieError.failedToFetchMovies
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let movies = try decoder.decode([Movie].self, from: data)
+            return movies
+        } catch {
+            throw MovieError.failedToDecodeMovies
+        }
     }
 }
+ 
