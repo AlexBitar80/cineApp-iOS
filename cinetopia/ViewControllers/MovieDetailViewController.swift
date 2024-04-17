@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieDetailViewController: UIViewController {
     
@@ -64,6 +65,8 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        overrideUserInterfaceStyle = .dark
+        
         configureUI()
         addConstraints()
     }
@@ -73,8 +76,10 @@ class MovieDetailViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .background
         
+        let url = URL(string: movie.image)
+        
         movieTitle.text = movie.title
-        movieImageView.image = UIImage(named: movie.image)
+        movieImageView.kf.setImage(with: url)
         movieDescription.text = movie.synopsis
         
         view.addSubview(scrollView)
