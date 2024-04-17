@@ -41,7 +41,7 @@ class MoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .dark
         
         let tapGesture = UITapGestureRecognizer(target: self, 
                                                 action: #selector(hideKeyboard))
@@ -69,6 +69,9 @@ class MoviesViewController: UIViewController {
     
     private func setupNavigationBar() {
         title = "Filmes Populares"
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.white
