@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46BBFE4C6DC5D81597684362 /* Pods_cinetopia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E507955C89265C94B38DCCF2 /* Pods_cinetopia.framework */; };
 		CE7142A52B3607D300758F05 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7142A42B3607D300758F05 /* MoviesViewController.swift */; };
 		CE9A1B972B50625E0018AB31 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1B962B50625E0018AB31 /* Movies.swift */; };
 		CEC54B2B2B28BCC700C35364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC54B2A2B28BCC700C35364 /* AppDelegate.swift */; };
@@ -14,11 +15,13 @@
 		CEC54B2F2B28BCC700C35364 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC54B2E2B28BCC700C35364 /* HomeViewController.swift */; };
 		CEC54B342B28BCC800C35364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B332B28BCC800C35364 /* Assets.xcassets */; };
 		CEC54B372B28BCC800C35364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC54B352B28BCC800C35364 /* LaunchScreen.storyboard */; };
+		CEDA41812BB3301C007751DE /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA41802BB3301C007751DE /* MovieService.swift */; };
 		CEF9FCF12B7D076D00E31A3C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */; };
 		CEFED0652B858529005284EF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFED0642B858529005284EF /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7348860F2F8C715521D73E07 /* Pods-cinetopia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cinetopia.debug.xcconfig"; path = "Target Support Files/Pods-cinetopia/Pods-cinetopia.debug.xcconfig"; sourceTree = "<group>"; };
 		CE7142A42B3607D300758F05 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		CE9A1B962B50625E0018AB31 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		CEC54B272B28BCC700C35364 /* cinetopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cinetopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,8 +31,11 @@
 		CEC54B332B28BCC800C35364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEC54B362B28BCC800C35364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEC54B382B28BCC800C35364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDA41802BB3301C007751DE /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		CEF9FCF02B7D076D00E31A3C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		CEFED0642B858529005284EF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		E507955C89265C94B38DCCF2 /* Pods_cinetopia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cinetopia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACAC2663019AD90D9FFBE74 /* Pods-cinetopia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cinetopia.release.xcconfig"; path = "Target Support Files/Pods-cinetopia/Pods-cinetopia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,12 +43,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BBFE4C6DC5D81597684362 /* Pods_cinetopia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E03195E03EA861E8E561039 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E507955C89265C94B38DCCF2 /* Pods_cinetopia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98D671DFAECBCEE7A79322E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7348860F2F8C715521D73E07 /* Pods-cinetopia.debug.xcconfig */,
+				EACAC2663019AD90D9FFBE74 /* Pods-cinetopia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CE9A1B942B5062190018AB31 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +90,8 @@
 			children = (
 				CEC54B292B28BCC700C35364 /* cinetopia */,
 				CEC54B282B28BCC700C35364 /* Products */,
+				98D671DFAECBCEE7A79322E9 /* Pods */,
+				0E03195E03EA861E8E561039 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +106,7 @@
 		CEC54B292B28BCC700C35364 /* cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA417F2BB33002007751DE /* Services */,
 				CEF9FCEF2B7D072A00E31A3C /* Cells */,
 				CE9A1B952B5062450018AB31 /* Models */,
 				CE9A1B942B5062190018AB31 /* ViewControllers */,
@@ -90,6 +117,14 @@
 				CEC54B382B28BCC800C35364 /* Info.plist */,
 			);
 			path = cinetopia;
+			sourceTree = "<group>";
+		};
+		CEDA417F2BB33002007751DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA41802BB3301C007751DE /* MovieService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		CEF9FCEF2B7D072A00E31A3C /* Cells */ = {
@@ -107,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEC54B3B2B28BCC800C35364 /* Build configuration list for PBXNativeTarget "cinetopia" */;
 			buildPhases = (
+				E1F3A2FB78092A0608F44CB5 /* [CP] Check Pods Manifest.lock */,
 				CEC54B232B28BCC700C35364 /* Sources */,
 				CEC54B242B28BCC700C35364 /* Frameworks */,
 				CEC54B252B28BCC700C35364 /* Resources */,
+				4D9CE519E66961E7EC0A8916 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -165,6 +202,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D9CE519E66961E7EC0A8916 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cinetopia/Pods-cinetopia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cinetopia/Pods-cinetopia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cinetopia/Pods-cinetopia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1F3A2FB78092A0608F44CB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cinetopia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEC54B232B28BCC700C35364 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,6 +255,7 @@
 				CEC54B2B2B28BCC700C35364 /* AppDelegate.swift in Sources */,
 				CEFED0652B858529005284EF /* MovieDetailViewController.swift in Sources */,
 				CEC54B2D2B28BCC700C35364 /* SceneDelegate.swift in Sources */,
+				CEDA41812BB3301C007751DE /* MovieService.swift in Sources */,
 				CE7142A52B3607D300758F05 /* MoviesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,19 +395,21 @@
 		};
 		CEC54B3C2B28BCC800C35364 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7348860F2F8C715521D73E07 /* Pods-cinetopia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LFHK2L5V9K;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cinetopia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -349,19 +431,21 @@
 		};
 		CEC54B3D2B28BCC800C35364 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EACAC2663019AD90D9FFBE74 /* Pods-cinetopia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LFHK2L5V9K;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = cinetopia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

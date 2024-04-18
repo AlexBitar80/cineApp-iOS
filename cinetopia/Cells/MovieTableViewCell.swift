@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
     
@@ -102,8 +103,9 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func cofigureCell(cell: Movie) {
-        moviePosterImageView.image = UIImage(named: cell.image)
+        let url = URL(string: cell.image)
+        moviePosterImageView.kf.setImage(with: url)
         movieTitleLabel.text = cell.title
-        movieReleaseDateLabel.text = "Lançamento: \(cell.realaseDate)"
+        movieReleaseDateLabel.text = "Lançamento: \(cell.releaseDate)"
     }
 }
